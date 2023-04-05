@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_database_sample/widgets/home_screen.dart';
 import 'package:hive_flutter/adapters.dart';
-
 import 'model/data_model.dart';
 
 Future<void> main() async {

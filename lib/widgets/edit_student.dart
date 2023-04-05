@@ -80,30 +80,26 @@ class _EditStudentState extends State<EditStudent> {
                         radius: 80,
                         backgroundImage: image != null
                             ? FileImage(File(image!.path))
-                            : FileImage(File(widget.image))
-                        // backgroundImage: FileImage(
-                        //   File(widget.image),
-                        // ),
-                        ),
-                    IconButton(
-                        onPressed: () async {
-                          final photo = await ImagePicker()
-                              .pickImage(source: ImageSource.gallery);
-                          if (photo == null) {
-                            return;
-                          } else {
-                            final photoTemp = File(photo.path);
-                            setState(
-                              () {
-                                image = photoTemp;
-                              },
-                            );
-                          }
-                        },
-                        icon: Icon(
-                          Icons.camera_alt_outlined,
-                          size: 30,
-                        )),
+                            : FileImage(File(widget.image))),
+                    // IconButton(
+                    //     onPressed: () async {
+                    //       final photo = await ImagePicker()
+                    //           .pickImage(source: ImageSource.gallery);
+                    //       if (photo == null) {
+                    //         return;
+                    //       } else {
+                    //         final photoTemp = File(photo.path);
+                    //         setState(
+                    //           () {
+                    //             image = photoTemp;
+                    //           },
+                    //         );
+                    //       }
+                    //     },
+                    //     icon: const Icon(
+                    //       Icons.camera_alt_outlined,
+                    //       size: 30,
+                    //     )),
                     const SizedBox(
                       height: 20,
                     ),
@@ -191,7 +187,7 @@ class _EditStudentState extends State<EditStudent> {
                       children: [
                         ElevatedButton.icon(
                           style: ElevatedButton.styleFrom(
-                              shape: StadiumBorder(),
+                              shape: const StadiumBorder(),
                               backgroundColor: (Colors.black)),
                           onPressed: () {
                             if (_formkey.currentState!.validate()) {
@@ -218,7 +214,7 @@ class _EditStudentState extends State<EditStudent> {
         age: _ageOfStudent.text,
         phnNumber: _phnOfStudent.text,
         address: _addressOfStudent.text,
-        photo: image!.path);
+        photo: widget.image);
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         behavior: SnackBarBehavior.floating,
